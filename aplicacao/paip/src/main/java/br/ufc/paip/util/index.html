@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>PAIP - UFC</title>
+        <link href="/webjars/materializecss/0.98.2/css/materialize.min.css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper teal">
+                        <a class="left" id="usuario" data-activates="user-out" ><i class="material-icons">menu</i></a>
+                        <a href="#" class="brand-logo">PAIP</a>
+                </div>
+            </nav>
+            <!--Navbar usuário-->
+            <ul id="user-out" class="side-nav">
+                <li>
+                    <div class="userView">
+                        <div class="background">
+                            <img class="responsive-img" src="img/background.jpg"/>
+                        </div>
+                        <a href="#user"><img class="circle" src="img/eu.jpg"/></a>
+                        <a href="#name"><span class="white-text name">Allan Vidal</span></a>
+                        <a href="#email"><span class="white-text email">allanfvc@alu.ufc.br</span></a>
+                    </div>
+                </li>
+                <li><a href="/orientador/">Orientador</a></li>
+                <li><a href="#">Histórico</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="subheader">Configurações</a></li>
+                <li><a class="waves-effect" href="#">Editar perfil</a></li>
+            </ul>
+        </header>
+        <main class="row fluxograma">
+            <div class="grow droppable grey lighten-3" id="s1">
+                <div class="cabecalho-semestre">
+                    <div class="left">
+                        <a class="expander" id="1"><i class="material-icons">menu</i></a>							
+                    </div>
+                    <div class="semestre hideable">SEMESTRE 01 </div>
+                </div>
+                <div class="body hideable">
+                </div>
+            </div>
+            <div class="grow droppable grey lighten-3" id="s2">
+                <div class="cabecalho-semestre">
+                    <div class="left">
+                        <a class="expander" id="2"><i class="material-icons">menu</i></a>							
+                    </div>
+                    <div class="semestre hideable">SEMESTRE 02</div>
+                </div>
+                <div class="body hideable">
+                </div>				
+            </div>
+            <div class="grow droppable grey lighten-3" id="s3">
+                <div class="cabecalho-semestre">
+                    <div class="left">
+                        <a class="expander" id="3"><i class="material-icons">menu</i></a>							
+                    </div>
+                    <div class="semestre hideable">SEMESTRE 03</div>
+                </div>
+                <div class="body hideable">
+                </div>
+            </div>
+            <div class="grow droppable grey lighten-3" id="s4">
+                <div class="cabecalho-semestre">
+                    <div class="left">
+                        <a class="expander" id="4"><i class="material-icons">menu</i></a>							
+                    </div>
+                    <div class="semestre hideable">SEMESTRE 04</div>
+                </div>
+                <div class="body hideable">
+                </div>				
+            </div>
+            <div class="grow droppable grey lighten-3" id="s5">
+                <div class="cabecalho-semestre">
+                    <div class="left">
+                        <a class="expander" id="5"><i class="material-icons">menu</i></a>							
+                    </div>
+                    <div class="semestre hideable"> SEMESTRE 05</div>
+                </div>
+                <div class="body hideable">
+                </div>
+            </div>
+            <div class="grow droppable grey lighten-3" id="s6">
+                <div class="cabecalho-semestre">
+                    <div class="left">
+                        <a class="expander" id="6"><i class="material-icons">menu</i></a>							
+                    </div>
+                    <div class="semestre hideable">SEMESTRE 06</div>
+                </div>
+                <div class="body hideable">
+                </div>				
+            </div>
+            <div class="grow droppable grey lighten-3" id="s7">
+                <div class="cabecalho-semestre">
+                    <div class="left">
+                        <a class="expander" id="7"><i class="material-icons">menu</i></a>							
+                    </div>
+                    <div class="semestre hideable">SEMESTRE 07</div>
+                </div>
+
+                <div class="body hideable">
+                </div>
+            </div>
+            <div class="grow droppable grey lighten-3" id="s8">
+                <div class="cabecalho-semestre">
+                    <div class="left">
+                        <a class="expander" id="8   "><i class="material-icons">menu</i></a>							
+                    </div>
+                    <div class="semestre hideable">SEMESTRE 08</div>
+                </div>
+
+                <div class="body hideable">
+                </div>				
+            </div>
+
+            <div class="fixed-action-btn horizontal">
+                <a class="modal-trigger btn-floating btn-large red" href="#modal1">
+                    <i class="large material-icons">add</i>
+                </a>
+            </div>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>Optativas</h4>
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">place</i>Optativas do Curso</div>
+                            <div class="collapsible-body">
+                                <div class="painel-optativas" id="card-panel-optcurso">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Optativas Livres</div>
+                            <div class="collapsible-body">
+                                <div class="painel-optativas" id="card-panel-optlivre">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">favorite_border</i>Optativas Sugeridas</div>
+                            <div class="collapsible-body">
+                                <div class="painel-optativas" id="card-panel-optsugerido"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Finalizar</a>
+                </div>
+            </div>
+        </main>
+        <!-- Importação dos Javascripts AQUI -->
+        <script src="/webjars/jquery/2.2.4/jquery.js"></script>
+        <script src="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/webjars/materializecss/0.98.2/js/materialize.js"></script>
+        <script type="text/javascript" th:src="@{/js/index.js}"></script>
+    </body>
+</html>

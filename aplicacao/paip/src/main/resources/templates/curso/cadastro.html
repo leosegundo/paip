@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	
+    layout:decorator="base/base">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>PAIP - UFC</title>   
+</head>
+<body>
+	<div layout:fragment="conteudo">
+	<div class="container">
+	<form class="card" th:action="@{/curso/cadastro}" method="post">	
+	<div class="card-content col s6">
+		<span class="card-title">Novo Curso</span>		
+		<div th:object="${curso}" class="row">
+			<div class="input-field col s12">
+				<input th:field="*{codigo}" name="codigo" type="text" required="required"/>
+				<label for="nome">Código</label>
+			</div>		
+			<div class="input-field col s12">
+				<input th:field="*{nome}" name="nome" type="text" required="required"/>
+				<label for="nome">Nome</label>
+			</div>
+			<div class="col s12">
+				<button type="submit" class="btn-large block waves-effect waves-light right">
+					Salvar
+				</button>
+			</div>
+		</div>		
+	</div>
+	</form>
+	</div>
+	</div>
+</body>
+
+</html>

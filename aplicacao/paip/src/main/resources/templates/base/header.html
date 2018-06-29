@@ -1,0 +1,26 @@
+<header th:fragment="header">
+<div class="navbar-fixed">
+<nav>
+    <div class="nav-wrapper teal">
+            <a id="logo" href="/" class="left brand-logo">PAIP</a>
+            <ul id="nav-mobile" class="right" th:if="${usuario_}">            
+            	<li th:each="link:${links}">
+            		<a th:class="${link.class}" th:text="${link.nome}" th:target="${link.target}"></a>           		
+            	</li>
+                <li>
+                	<span class="" th:text="${usuario_.nome}"></span>
+                </li>                
+                <li>
+                	<a class="circular waves-effect dropdown-button" data-activates='user-account-options'
+                       data-alignment="right" data-constrainwidth="false" data-beloworigin="true">
+                    	<i class="material-icons">person</i>
+                	</a>
+                </li>
+            </ul>
+            <ul id='user-account-options' class='dropdown-content'>           
+                <li><a th:href="@{/logout}" class="waves-effect blue-grey-text text-darken-4"><i class="material-icons">arrow_back</i>Sair</a></li>
+            </ul>
+    </div>
+</nav>
+</div>
+</header>

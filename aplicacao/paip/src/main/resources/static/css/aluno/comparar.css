@@ -1,0 +1,107 @@
+#fluxograma .semestre{
+	min-width: 17%
+}
+
+#fluxograma.expand{
+	height:calc(100% - 85px);
+	margin-left: 0px;
+	width: 100%;
+    display: flex;
+    position: absolute;
+}
+
+.plano{
+	width: 100%;
+	margin-left: 15px;
+	margin-right: 15px;
+	border: 1px solid grey;
+	border-right: 2px solid grey;
+	flex:1;
+	background-color: #eeeeee;
+}
+#fluxograma.expand .semestre{
+	min-width: 12.5%
+}
+.semestres{
+	width: 100%;
+	display: inline-flex;	
+}
+
+.cabecalho-semestre .material-icons{
+	font-size: 18px !important;
+}
+
+.hide{
+	display:none;
+}
+
+.grow {
+	flex:1;
+	padding-right: 0px !important;
+    padding-left: 0px !important;
+	background-color: #eeeeee;
+}
+
+.cabecalho-semestre{
+	width: 100%;	
+	display:inline-flex;
+}
+
+.cabecalho-semestre .left a,i{
+    cursor: pointer;
+}
+
+.shrink{
+    width: 15px;
+}
+.grow .disciplina{
+    width: 75%;
+    height: 50px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom:25px
+}
+
+.grow.body{
+	min-heigth: 500px;
+}
+
+.disciplina-nome{
+	width: 100%;
+    font-size: 10px;
+    font-weight: lighter;
+    padding: 5px;
+    text-align: right;
+}
+
+.collapsible-header{
+	font-size: 13px;
+}	
+
+#logo {
+    padding-left: 10px;
+    font-weight: lighter;
+}
+
+.opcoes{
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 5px;
+    color: gray;
+}
+
+.opcoes .material-icons, .opcoes a {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 5px;
+    color: gray;
+}
+
+
+

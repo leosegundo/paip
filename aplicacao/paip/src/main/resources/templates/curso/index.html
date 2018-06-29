@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"	
+    layout:decorator="base/base">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>PAIP - UFC</title>   
+</head>
+<body>
+	<div layout:fragment="conteudo">
+	<div class="container">
+		<table class="bordered">
+		    <thead>
+		    <tr>
+		        <th>Codigo</th>
+		        <th>Nome</th>
+		    </tr>
+		    </thead>
+		    <tbody>
+		    	<tr th:each="curso : ${cursos}">
+		    		<td th:text="${curso.codigo}"></td>
+		    		<td th:text="${curso.nome}"></td>
+		    	</tr>
+		    </tbody>
+		</table>
+	<div class="card-action right-align" sec:authorize="hasAuthority('COORDENADOR')">
+		<div class="fixed-action-btn">
+			<a class="btn-floating btn-large tooltipped" th:href="@{/curso/cadastrar}"
+			data-position="left" data-delay="500" data-tooltip="Novo Curso">
+				<i class="large material-icons">add</i>
+			</a>
+		</div>
+	</div>
+	</div>
+	</div>
+</body>
+</html>

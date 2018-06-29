@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	
+    layout:decorator="base/base">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>PAIP - UFC</title>   
+</head>
+<body>
+	<div layout:fragment="conteudo">
+	<div class="container">
+	<form class="card" th:action="@{/cadastro}" method="post">	
+	<div class="card-content">
+		<span class="card-title">Novo Aluno</span>		
+		<div th:object="${usuario}" class="row">
+			<div class="input-field col s12">
+				<input th:field="*{nome}" id="nome" name="nome" type="text" class="validate" required="required"/>
+				<label for="nome">Nome</label>
+			</div>		
+			<div class="input-field col s12">
+				<input th:field="*{email}" id="email" name="email" type="email" class="validate" required="required"/>
+				<label for="email">Email</label>
+			</div>
+			<div class="input-field col s12">
+				<input th:field="*{senha}" id="senha" name="senha" type="password" class="validate" autocomplete="off" required="required"/>
+				<label for="senha">Senha</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input th:field="${aluno.matricula}" id="matricula" name="matricula" type="text" class="validate" required="required"/>
+				<label for="nome">matricula</label>
+			</div>
+			<div class="input-field col s6">
+				<input th:field="${aluno.anoIngresso}" id="nome" name="nome" type="text" class="validate" required="required"/>
+				<label for="nome">Ano de Ingresso</label>
+			</div>
+			<div class="input-field col s6">
+				<select th:field="${aluno.curriculo}"  required="required">
+					<option th:each="curso : ${cursos}" th:text="${curso.nome}" th:value="${curso.id}"></option>
+				</select>
+				<label for="curriculo">Curso<span class="tooltipped red-text text-darken-2" data-delay="50" data-tooltip="Este campo é obrigatório.">*</span>:</label>
+			</div> 
+			
+			<div class="col s12">
+				<button type="submit" class="btn-large block waves-effect waves-light right">
+					Salvar
+				</button>
+			</div>
+		</div>		
+	</div>
+	</form>
+	</div>
+	</div>
+</body>
+
+</html>

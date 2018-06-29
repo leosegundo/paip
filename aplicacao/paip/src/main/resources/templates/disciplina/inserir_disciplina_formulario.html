@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	
+    layout:decorator="base/base">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>PAIP - UFC</title>  
+    
+</head>
+<body>
+	<div layout:fragment="conteudo">
+	<div class="container">
+	<form class="card" th:action="@{/disciplina/inserirDisciplina}" method="post">	
+	<div class="card-content col s6">
+		<span class="card-title">Nova Disciplina</span>		
+		<div th:object="${disciplina}" class="row">
+			<div class="input-field col s12">
+				<input th:field="*{nome}" name="nome" type="text" required="required"/>
+				<label for="nome">Nome</label>
+			</div>
+			<div class="input-field col s12">
+				<input th:field="*{codigo}" name="codigo" type="text" required="required"/>
+				<label for="nome">Código</label>
+			</div>
+			<div class="input-field col s12">
+				<input th:field="*{cargaHoraria}" name="cargaHoraria" type="text" required="required"/>
+				<label for="nome">carga Horaria</label>
+			</div>
+			
+			<div class="input-field col s12">
+				<input id="a" type="radio" onchange="notShowMore();"/>
+				<label for="nome">Cadastrar Apenas a disciplina</label>
+			</div>
+			
+			<div class="input-field col s12">
+				<input id="b" type="radio" onchange="showMore();"/>
+				<label for="nome">Atribuir esta disciplina a um Curso</label>
+			</div>
+
+			<!-- <div class="input-field col s12">
+				<input id="b" type="radio" onchange="atribuirUmaACurso();"/>
+				<label for="nome">Atribuir uma disciplina a um Curso</label>
+			</div>
+			 -->
+			
+			<label id="campo"> <hr size="5" color="black"> </label> 
+			
+						
+			<script type="text/javascript">
+				function ShowMore(){
+				document.getElementById("campo").innerHTML += "
+					<label for="nome">Curriculo:</label>
+					<div class="input-field col s12">
+						<select name="curriculoValor">
+									<tr th:each="c : ${curriculos}">
+										<option th:value="${c.id_curriculo}"> <td th:text="${c.codigo}"> - <td th:text="${c.curso.nome}"></td></option>
+									</tr>
+								</select><br />		
+					</div>
+				";
+				document.getElementById("campo").innerHTML += "
+					<div class="input-field col s12">
+						<input name="semestre" type="number" required="required"/>
+							<label for="nome">Semestre</label>
+					</div>
+				";
+				
+				document.getElementById("campo").innerHTML += "
+					<div class="input-field col s12">
+						<label for="nome">Tipo:</label>
+						<select name="obrigatoria">
+							<option value="1"> Obrigatoria </option>
+							<option value="0"> Optativa </option>  
+						</select><br />
+					</div>
+				";
+			}
+			function notShowMore(){
+				document.getElementById("campo").innerHTML = "<label id='campo'> <hr size='5' color='black'> </label>";
+			}
+			</script>
+			
+			<div class="col s12">
+				<button type="submit" class="btn-large block waves-effect waves-light right">
+					Salvar
+				</button>
+			</div>
+		</div>		
+	</div>
+	</form>
+	</div>
+	</div>
+</body>
+
+</html>

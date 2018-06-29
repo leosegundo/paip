@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="base/base">
+<head>
+    <meta charset="UTF-8"/>
+    <title>PAIP - Orientador</title>
+    <link href="/webjars/materializecss/0.98.2/css/materialize.min.css" rel="stylesheet" media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+</head>
+<body>
+    <section layout:fragment="conteudo">
+        <h4 >Francisco Allan Flávio Vidal Costa</h4>
+        <table class="bordered">
+            <thead>
+            <tr>
+                <th>SEMESTRE 01</th>
+                <th>SEMESTRE 02</th>
+                <th>SEMESTRE 03</th>
+                <th>SEMESTRE 04</th>
+                <th>SEMESTRE 05</th>
+                <th>SEMESTRE 06</th>
+                <th>SEMESTRE 07</th>
+                <th>SEMESTRE 08</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+    <!-- Importação dos Javascripts AQUI -->
+    <script src="/webjars/jquery/2.2.4/jquery.js"></script>
+    <script src="/webjars/materializecss/0.98.2/js/materialize.js"></script>
+    <script type="text/javascript" th:src="@{/js/orientador/aluno.js}"></script>
+</body>
+</html>

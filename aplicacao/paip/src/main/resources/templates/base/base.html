@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>PAIP - UFC</title>
+        <link href="/webjars/materializecss/0.98.2/css/materialize.min.css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link th:href="@{/css/index.css}" rel="stylesheet"/>
+        <link th:href="@{/css/base/header.css}" rel="stylesheet"/>
+        
+	    <!--     CONFIGURACAO DO CSRF -->
+	    <meta name="_csrf" th:content="${_csrf.token}"/>
+		<!--     default header name is X-CSRF-TOKEN -->
+	    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+	    <!-- CONFIGURACAO DO CONTEXTO -->
+	    <meta name="_context" th:content="${#httpServletRequest.getContextPath()}" />
+    </head>
+    <body>
+    	<div th:replace="base/header :: header"></div>
+        <section layout:fragment="conteudo"></section>
+        <!-- Importação dos Javascripts AQUI -->
+        <script src="/webjars/jquery/2.2.4/jquery.js"></script>
+        <script src="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/webjars/materializecss/0.98.2/js/materialize.js"></script>
+        <script type="text/javascript" th:src="@{/js/index.js}"></script>
+        <section layout:fragment="js"></section>
+    </body>
+</html>

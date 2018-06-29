@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="base/base"
+      >
+    <head>
+        <meta charset="UTF-8"/>
+        <title>PAIP - UFC</title>
+        <link href="/webjars/materializecss/0.98.2/css/materialize.min.css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link th:href="@{/css/index.css}" rel="stylesheet"/>
+        <link th:href="@{/css/aluno/index.css}" rel="stylesheet"/>
+    </head>
+    <body>
+   	
+   	<section layout:fragment="conteudo">
+    	<div class="row">    		
+	        <div id="barra-editar" class="barra-lateral hide collapsible">
+	        <h5>Editar Semestre</h5>
+	        </div>
+            <ul id="barra-lateral" class="barra-lateral hide collapsible row" data-collapsible="accordion">
+            	<h5>Optativas</h5>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">place</i>Optativas do Curso</div>
+                    <div class="collapsible-body">
+                        <div class="painel-optativas semestre" id="card-panel-optcurso">
+                        	<div th:each="optativa: ${optativas}" class="card NNdisciplina" th:attr="id=${optativa.id}">
+                        		<span class="right opcoes" th:text="${optativa.codigo}"></span>
+		                		<p class="disciplina-nome" th:text="${optativa.nome}"></p>								
+							</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </div>
+			<div id="fluxograma" class="row expand">
+        		<div class="plano">
+        			<div class="semestres" id="semestres">
+	        		<div th:each="chave:${chaves}" class="grow semestre" th:id="'s'+${chave}" >
+	        			<nav class="teal darken-1">
+	        				<div class="nav-wrapper">
+	        					<a href="#" class="center hideable" th:text="${'SEMESTRE 0' +chave}">Logo</a>
+	        					<a class="left expander" th:id="${chave}"><i class="material-icons">expand_less</i></a>
+	        					<a class="left expander hide" th:id="${chave}"><i class="material-icons">expand_more</i></a>
+	        					<a class="right editar-semestre hideable" target="barra-editar">
+	        						<i class='tooltipped' data-position='bottom' data-delay='50' data-tooltip="Adicionar notas e encerrar semestre">
+	        							<i class="material-icons">
+	        								edit
+	        							 </i>
+	        						</i>
+	        					</a>
+	        				</div>
+	        			</nav>
+	                <div class="body hideable">
+		                <!-- <div th:each="disciplina: ${disciplinas.get(chave)}" class="card disciplina" th:attr="id=${disciplina.disciplina.id}">-->
+		                	 
+		                 <div th:each="disciplina: ${disciplinas.get(chave)}" 
+		                	 	th:classappend="|${disciplina.finalizado ? 'card disciplinaF' : ''}
+		                	 	 ${!disciplina.finalizado ? 'card disciplina' : ''}
+		                	 	  ${disciplina.atrasado ? 'card disciplinaA' : ''} 
+		                	 	  ${!disciplina.obrigatoria ? 'card OOdisciplina' : ''}|" 
+		                	 	  th:attr="id=${disciplina.disciplina.id}">
+		                	 	  <!-- th:attr="id=${disciplina.disciplina.id}"> -->
+		                		<div th:if="${!disciplina.obrigatoria}">
+		                			<a class="navbar-option" target="barra-lateral">
+		                			<span class="right opcoes" th:text="${disciplina.disciplina.codigo}"></span>
+		                			<p class="disciplina-nome" th:text="${disciplina.disciplina.nome}"></p>
+		                			</a>
+		                		</div>
+		                		<div th:unless="${!disciplina.obrigatoria}">
+		                			<span class="right opcoes" th:text="${disciplina.disciplina.codigo}"></span>
+		                			<p class="disciplina-nome" th:text="${disciplina.disciplina.nome}"></p>
+		                		</div>
+		                		
+		                		
+		                	<!--  <div th:if="${!disciplina.finalizado}" class="card disciplina" color="blue">
+		                		<span class="right opcoes" th:text="${disciplina.disciplina.codigo}"></span>
+		                		<p class="disciplina-nome" th:text="${disciplina.disciplina.nome}"></p>
+		                		
+		                	</div>-->				         
+		            	</div>
+	                </div>
+	            	</div>	            	
+	        		<div class="grow semestre hide" th:id="'s'+${#lists.size(chaves)+1}" >
+	        			<nav class="teal darken-1">
+	        				<div class="nav-wrapper">
+	        					<a href="#" class="center hideable" th:text="${#lists.size(chaves)+1 > 9}?${'SEMESTRE ' +{#lists.size(chaves)+1}}:${'SEMESTRE 0' +{#lists.size(chaves)+1}}">Logo</a>
+	        					<a class="left expander" th:id="${#lists.size(chaves)+1}"><i class="material-icons">expand_less</i></a>
+	        					<a class="left expander hide" th:id="${#lists.size(chaves)+1}"><i class="material-icons">expand_more</i></a>
+	        					<a class="right editar-semestre hideable" target="barra-editar"><i class="material-icons">edit</i></a>
+	        				</div>
+	        			</nav>
+	                <div class="body hideable">
+		                <div class="card disciplina" id="helper">
+		                	<span class="right opcoes">AJUDA</span>
+		                	<p class="disciplina-nome">Adicione uma disciplina para salvar o semestre</p>				         
+		            	</div>
+	                </div>
+	            	</div>            	
+	            	</div>
+            	</div>
+
+        </div>
+        
+        <!-- Modal Structure -->
+  			<div id="modal1" class="modal">
+    			<div class="modal-content">
+      			<h4>Modal Header</h4>
+      			<p id="texto"></p>
+    		</div>
+    		<div class="modal-footer">
+      			<a href="#!" id="btn1" class="modal-action modal-close waves-effect waves-green btn-flat">Confirmar</a>
+      			<a href="#!" id="btn2" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    		</div>
+  			</div>
+
+
+    </section>
+    
+        <!-- Importação dos Javascripts AQUI -->
+    <section layout:fragment="js">
+        <script type="text/javascript" th:src="@{/js/index.js}"></script>
+        <script type="text/javascript" th:src="@{/js/aluno/ordenacao.js}"></script>        
+    </section>
+    </body>
+</html>

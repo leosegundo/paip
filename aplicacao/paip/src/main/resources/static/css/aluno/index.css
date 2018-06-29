@@ -1,0 +1,302 @@
+html, body{
+	overflow:hidden;
+}
+
+.barra-lateral{
+	top: 84px;
+	margin-top: 0px;
+	width: 23%;
+	position: fixed;
+	margin-left: 15px;	
+}
+
+.barra-lateral h5{
+	margin-left: 15px;
+}
+
+.barra-lateral .collapsible-body{
+	padding: 0px 5px 0px 5px;
+	display: flex;
+	overflow-y: auto;
+	max-height: 500px;	
+}
+
+.barra-lateral .collapsible-body .painel-optativas{
+	display: flex; 
+	flex-wrap: wrap;
+}
+
+#fluxograma {
+	margin-left: calc(25%);
+    width: 74%;
+    height:  calc(100% - 85px);
+    display: flex;
+    position: absolute;
+}
+
+#fluxograma .semestre{
+	min-width: 17%
+}
+
+#fluxograma.expand{
+	height:calc(100% - 85px);
+	margin-left: 0px;
+	width: 100%;
+    display: flex;
+    position: absolute;
+}
+
+.plano{
+	width: 100%;
+	margin-left: 15px;
+	margin-right: 15px;
+	border: 1px solid grey;
+	border-right: 2px solid grey;
+	overflow:scroll;
+	flex:1;
+	background-color: #eeeeee;
+	
+}
+#fluxograma.expand .semestre{
+	min-width: 12.5%
+}
+.semestres{
+	width: 100%;
+	display: inline-flex;	
+}
+
+.cabecalho-semestre .material-icons{
+	font-size: 18px !important;
+}
+
+.hide{
+	display:none;
+}
+
+.grow {
+	flex:1;
+	padding-right: 0px !important;
+    padding-left: 0px !important;
+	background-color: #eeeeee;
+	border-left: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+.cabecalho-semestre{
+	width: 100%;	
+	display:inline-flex;
+}
+
+.cabecalho-semestre .left a,i{
+    cursor: pointer;
+}
+
+.shrink{
+    width: 15px;
+}
+
+.NNdisciplina{
+    width: 132px;
+    height: 96px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 7.5px;
+ 
+}
+
+.disciplina{
+    width: 132px;
+    height: 96px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 7.5px;
+ 
+}
+
+
+.disciplinaF{
+    width: 132px;
+    height: 96px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 7.5px;
+    background-color: #d3d7cf;
+}
+
+.disciplinaA{
+    width: 132px;
+    height: 96px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 7.5px;
+    /*background-color: #FC8B85;*/
+    
+}
+
+.OOdisciplina{
+    width: 132px;
+    height: 96px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 7.5px;
+    background-color: #FEE766;
+}
+
+.grow .disciplina{
+    width: 90%;
+    height: 75px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 5px;    
+}
+
+
+.grow .disciplinaF{
+    width: 90%;
+    height: 75px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 5px;    
+}
+
+.grow .disciplinaA{
+    width: 90%;
+    height: 75px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 5px;
+    
+    border: 2px dashed #52c7b8;
+	margin-top:12px;  
+}
+
+.grow .OOdisciplina{
+    width: 90%;
+    height: 75px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 5px; 
+    
+    border: 2px dashed #52c7b8;
+	margin-top:12px;   
+}
+
+.grow .NNdisciplina{
+    width: 90%;
+    height: 75px;
+    padding: 0 0 0 0;    
+    text-align: center;
+    word-break: break-word;
+    margin: auto;
+    margin-bottom: 5px;    
+}
+
+.grow.body{
+	min-heigth: 500px;
+}
+
+.disciplina-nome{
+	width: 100%;
+    font-size: 13px;
+    padding: 5px;
+    text-align: right;
+    /*font-weight: lighter;*/
+}
+
+.disciplinaF-nome{
+	width: 100%;
+    font-size: 13px;
+    padding: 5px;
+    text-align: right;
+    /*font-weight: lighter;*/
+}
+.collapsible-header{
+	font-size: 13px;
+}	
+
+
+#logo {
+    padding-left: 10px;
+    font-weight: lighter;
+}
+
+.opcoes {
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 5px;
+    color: gray;
+}
+
+#helper{
+	border: 2px dashed #52c7b8;
+	margin-top:12px;
+}
+
+
+#content {
+	/*border: 1px solid green;*/
+	width: 55%;	
+	height: 60%;
+}
+/* Carecteristicas de tudo que esta dentro da Div e com Link */
+#content ul li{
+	display:block;
+	position:relative;
+	font-size:12px;
+	margin:0 auto;
+	padding: 10px;
+	float:left;
+}
+/* Efeitos do texto */
+#content ul li span{
+	display:block;
+	padding:10px;
+	color: green;
+	position:absolute;
+	bottom:0;
+	left:0;
+	-webkit-border-radius:0 0 5px 5px;
+	-moz-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
+	opacity:0;
+	-moz-opacity:0;
+	filter:alpha(opacity=0);
+}
+
+/* Efeitos do texto quando o mouse estive em cima da Imagem */ 
+#content ul li:hover span{
+	border: 1px solid f00;
+	opacity:1;
+	-moz-opacity:1;
+	filter:alpha(opacity=100);
+}
+
+#content ul li span{ /* Espaço da mensagem que ira aparecer */
+	width:300px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+
+
+
+

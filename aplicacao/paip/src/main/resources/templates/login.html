@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>PAIP - UFC</title>
+        <link href="/webjars/materializecss/0.98.2/css/materialize.min.css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link th:href="@{/css/login/login.css}" rel="stylesheet"/>
+    </head>
+	
+	<body class="grey lighten-3">
+	
+		<!-- BEGIN LOGIN SECTION -->
+		
+		<div class="login__card-wrapper valign-wrapper">
+			
+			<form class="login__card card" th:action="@{/login}" method="post">
+			
+				<div class="login__card-image card-image blue-grey">					
+					<i th:unless="${param.error}" class="login__card-image-icon material-icons cyan-text text-lighten-3">person</i>
+					<i th:if="${param.error}" class="login__card-image-icon mdi mdi-account-alert cyan-text text-lighten-3"></i>
+									
+				</div>
+				
+				<div class="login__card-content card-content valign-wrapper">
+					
+					<div class="row no-margin">
+						
+						<div class="col s12 col s12 red-text text-lighten-2 bold text-18 self-sampled center" th:if="${param.error}">
+							Login ou senha incorreta!
+						</div>
+						
+						<!-- INPUT USERNAME -->
+						<div class="input-field col s12">
+							<input id="username" name="username" type="text" class="validate"/>
+							<label for="username">Email</label>
+						</div>
+						
+						<!-- INPUT PASSWORD -->
+						<div class="input-field col s12">
+							<input id="password" name="password" type="password" class="validate" autocomplete="off"/>
+							<label for="password">Senha</label>
+						</div>
+						
+						<div class="col s12">
+							<!-- SuBMIT BUTTON -->
+							<button type="submit" class="btn-large block waves-effect waves-light">
+								Entrar
+							</button>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="card-action right-align">
+					<a href="/cadastro" class="btn-flat waves-effect blue-grey-text">Novo Aluno</a>					
+				</div>
+				
+			</form>
+			
+		</div>
+		<!--end .card -->
+		
+		<!-- END LOGIN SECTION -->
+	
+		<div class="mf-foreground white" ></div>
+		
+		<!-- BEGIN JAVASCRIPT -->
+		
+	    <script type="text/javascript" src="/webjars/jquery/2.2.4/jquery.js"></script>
+        <script type="text/javascript" src="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/webjars/materializecss/0.98.2/js/materialize.js"></script>
+        <script type="text/javascript" th:src="@{/js/login/login.js}"></script>
+		
+		<!-- END JAVASCRIPT -->
+	
+	</body>
+</html>
+

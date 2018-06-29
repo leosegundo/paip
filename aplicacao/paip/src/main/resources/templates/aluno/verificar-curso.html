@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="base/base"
+      th:with="links = ${ {}}">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>PAIP - UFC</title>
+        <link href="/webjars/materializecss/0.98.2/css/materialize.min.css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link th:href="@{/css/aluno/comparar.css}" rel="stylesheet"/>
+        
+    </head>
+    <body>
+    <section layout:fragment="conteudo">
+    	<div class="row">
+    	<div class="	">
+    		<div id="fluxograma" class="row expand">
+        		<div class="plano">
+        			<div class="semestres" id="semestres">
+	        		<div th:each="chave:${chaves}" class="grow semestre" th:id="'s'+${chave}" th:unless="${chave==0}">
+	        			<nav class="teal darken-1">
+	        				<div class="nav-wrapper center">
+	        					<span th:text="${'SEMESTRE 0' +chave}">Logo</span>
+	        				</div>
+	        			</nav>
+	                <div class="body hideable">
+		                <div th:each="disciplina: ${disciplinas.get(chave)}" class="card disciplina	" th:attr="id=${disciplina.disciplina.id}">
+		                	<div class="right opcoes">		                		
+		                		<a href="#" class="verificar-descentes"><span th:text="${disciplina.disciplina.codigo}"></span><i class="right material-icons">keyboard_arrow_right</i></a>
+		                		<a href="#" class="verificar-descentes hide"><span th:text="${disciplina.disciplina.codigo}"></span><i class="right material-icons">keyboard_arrow_left</i></a>
+		                		</div>
+		                	<p class="disciplina-nome" th:text="${disciplina.disciplina.nome}"></p>				         
+		            	</div>
+	                </div>
+	                </div>
+	                </div>
+	                </div>
+	                </div>
+    	</div>
+    	</div>
+    </section>
+        <!-- Importação dos Javascripts AQUI -->
+    <section layout:fragment="js">
+    	<script type="text/javascript" th:src="@{/js/jsplumb/jsplumb.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/aluno/comparar.js}"></script>
+    </section>
+    </body>
+</html>
